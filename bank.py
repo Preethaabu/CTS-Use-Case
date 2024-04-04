@@ -16,6 +16,16 @@ class Bank:
         else:
             print("Account does not exist!")
 
+    def withdraw(self, account_number, amount):
+        if account_number in self.accounts:
+            if amount > self.accounts[account_number]['balance']:
+                print("Insufficient funds!")
+            else:
+                self.accounts[account_number]['balance'] -= amount
+                print("Withdrawal successful. Current balance:", self.accounts[account_number]['balance'])
+        else:
+            print("Account does not exist!")
+
     def display_balance(self, account_number):
         if account_number in self.accounts:
             print("Current balance:", self.accounts[account_number]['balance'])
@@ -39,6 +49,14 @@ deposit_amount = float(input("Enter deposit amount: "))
 
 # Depositing money
 bank.deposit(account_number, deposit_amount)
+
+
+# Get withdrawal amount from the user
+withdrawal_amount = float(input("Enter withdrawal amount: "))
+
+# Withdrawing money
+bank.withdraw(account_number, withdrawal_amount)
+
 
 # Displaying balance
 

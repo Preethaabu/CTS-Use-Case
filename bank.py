@@ -28,7 +28,7 @@ class Bank:
 
     def display_balance(self, account_number):
         if account_number in self.accounts:
-            print("Current balance:", self.accounts[account_number]['balance'])
+            print("Current balance for account", account_number, ":", self.accounts[account_number]['balance'])
         else:
             print("Account does not exist!")
 
@@ -59,5 +59,4 @@ bank.withdraw(account_number, withdrawal_amount)
 
 
 # Displaying balance
-
-#message
+bank.display_balance(account_number)
